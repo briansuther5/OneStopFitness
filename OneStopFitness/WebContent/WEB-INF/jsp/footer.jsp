@@ -1,4 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <footer class="site-footer navbar-fixed-bottom">
 	<p>Copyright &copy;2015 One Stop Fitness</p>
 	<div><ul class="social-network social-circle">

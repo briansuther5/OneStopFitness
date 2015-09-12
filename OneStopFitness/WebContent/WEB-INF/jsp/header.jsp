@@ -8,6 +8,7 @@
     <meta name="author" content="Brian Suther">
     <link rel="icon" href="${pageContext.request.contextPath}/img/OneStopFitnessNavLogo.png">
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/font-awesome.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
     
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js"></script>
@@ -35,7 +36,7 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="${pageContext.request.contextPath}/app/summary/view"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+					<li><a href="${pageContext.request.contextPath}/app/summary/view"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
 					<li><a href="#about"><span class="glyphicon glyphicon-book"></span>&nbsp;Diary</a></li>
 					<li><a href="#contact"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Exercises</a></li>
 				</ul>
