@@ -1,5 +1,5 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<footer class="main-footer">
+<footer class="site-footer navbar-fixed-bottom">
 	<p>Copyright &copy;2015 One Stop Fitness</p>
 	<div><ul class="social-network social-circle">
 	    <li><a href="https://www.facebook.com/brian.suther.9" target="_blank" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -7,6 +7,7 @@
 	    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
     </ul></div>
 </footer>
+</div>
 <script src="${pageContext.request.contextPath}/js/eOneStopFitness.js"></script>
 </body>
 </html>
