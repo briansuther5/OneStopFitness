@@ -10,11 +10,6 @@ footer {
     color: #938C8C;
 }
 
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -142px; 
-}
 .page-wrap:after {
   content: "";
   display: block;
@@ -111,7 +106,7 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 .social-circle a {
- background-color: #938C8C;   
+ background-color: #a30000;
 }
 
 .callout-light {
@@ -183,15 +178,6 @@ h4 {
 	line-height: 1.4;
 }
 
-/* For the footer */
-#wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
-}
 
     
     

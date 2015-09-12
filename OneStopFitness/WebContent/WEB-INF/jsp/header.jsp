@@ -55,4 +55,3 @@
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
-	<div class="page-wrap">

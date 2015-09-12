@@ -27,7 +27,7 @@
 			<td>Deload</td>
 		</tr>
 	</table>
-	<h3>Enter your one rep max in order to calculate your working sets:</h3>
+	<h4>Enter your one rep max in order to calculate your working sets:</h4>
 	<div id="jwOneRepMaxAlert" class="alert alert-danger" role="alert" style="display:none;">
     	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 	  	<span class="sr-only">Error:</span>
