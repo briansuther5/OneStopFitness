@@ -39,8 +39,6 @@
 					<li><a href="${pageContext.request.contextPath}/app/summary/view"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
 					<li><a href="#about"><span class="glyphicon glyphicon-book"></span>&nbsp;Diary</a></li>
 					<li><a href="#contact"><span class="glyphicon glyphicon-th-list"></span>&nbsp;Exercises</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
 					<li><a href="${pageContext.request.contextPath}/app/calendar/view"><span class="glyphicon glyphicon-calendar"></span></a></li>
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span><span class="caret"></span></a>
@@ -52,7 +50,34 @@
           				</ul>
         			</li>
 				</ul>
+				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+					<li><a href="${pageContext.request.contextPath}/app/account/create">Create Account</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In</a></li>
+				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
+	
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="loginmodal-container">
+				<h1>Login to Your Account</h1><br>
+			  	<form>
+					<input type="text" name="user" placeholder="Username">
+					<input type="password" name="pass" placeholder="Password">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+			  	</form>
+			  	<div class="login-help">
+					<a href="${pageContext.request.contextPath}/app/account/create">Register</a>&nbsp;&nbsp;<a href="#">Forgot Password</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		var eOsfContextHolder = {
+			contextPath : '${pageContext.request.contextPath}',
+			osfLogo : '${pageContext.request.contextPath}/img/OneStopFitnessNavLogo.png'
+		};
+	</script>
