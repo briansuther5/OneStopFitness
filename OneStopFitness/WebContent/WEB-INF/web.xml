@@ -28,7 +28,7 @@
 
 	<servlet-mapping>
 		<servlet-name>eOneStopFitness</servlet-name>
-		<url-pattern>/controller/*</url-pattern>
+		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 	
 <!--   -->
