@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +52,7 @@
         			</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
+					<li><a href="${pageContext.request.contextPath}/app/summary/contact">Contact</a></li>
 					<li><a href="${pageContext.request.contextPath}/app/account/create">Create Account</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In</a></li>
 				</ul>
@@ -59,7 +61,7 @@
 		</div>
 	</nav>
 	
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="${loginModalDisplay}">
     	<div class="modal-dialog">
 			<div class="loginmodal-container">
 				<h1>Login to Your Account</h1><br>
@@ -76,6 +78,9 @@
 	</div>
 	
 	<script>
+		<c:if test="${accountCreated}">
+			$("#login-modal").modal("show");
+		</c:if>
 		var eOsfContextHolder = {
 			contextPath : '${pageContext.request.contextPath}',
 			osfLogo : '${pageContext.request.contextPath}/img/OneStopFitnessNavLogo.png'

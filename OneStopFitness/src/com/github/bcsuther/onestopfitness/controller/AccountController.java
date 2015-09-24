@@ -34,6 +34,6 @@ public class AccountController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String createUserAccount(@ModelAttribute("userProfile") final UserProfile userProfile) {
 		this.accountDao.createUserAccount(userProfile);
-		return "redirect:/app/summary/view";
+		return "redirect:/app/summary/view?accountCreated=true";
 	}
 }
