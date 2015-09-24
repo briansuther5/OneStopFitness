@@ -34,7 +34,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-		<mapping class="com.github.bcsuther.onestopfitness.model.User" />
+		<mapping class="com.github.bcsuther.onestopfitness.model.UserProfile" />
         <!-- <mapping resource="User.hbm.xml"/> -->
 
     </session-factory>
