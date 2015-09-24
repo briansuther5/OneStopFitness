@@ -15,7 +15,11 @@
 		<dependency org="antlr" name="antlr" rev="2.7.6" changing="true" conf="default->default" />
 		<dependency org="log4j" name="log4j" rev="1.2.15" changing="true" conf="default->default" />
 		<dependency org="stax" name="stax-api" rev="1.0.1" conf="default->default" />
+		
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.32" conf="default->default" />
+		<dependency org="org.hibernate" name="hibernate-core" rev="5.0.1.Final"/>
+		<dependency org="org.javassist" name="javassist" rev="3.18.2-GA"/>
+		<dependency org="org.apache.tomcat" name="tomcat-dbcp" rev="7.0.55"/>
 		
 		<dependency org="javax.mail" name="mail" rev="1.4" conf="default->default" />
 		<dependency org="javax.servlet" name="jstl" rev="1.2"/>
@@ -26,6 +30,7 @@
 		<dependency org="org.springframework" name="spring-web" rev="4.1.6.RELEASE"/>
 		<dependency org="org.springframework" name="spring-core" rev="4.1.6.RELEASE"/>
 		<dependency org="org.springframework" name="spring-beans" rev="4.1.6.RELEASE"/>
+		
 
 		<exclude org="ant" module="ant" />
 		<exclude org="org.apache.ant" module="ant" />
