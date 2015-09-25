@@ -19,6 +19,7 @@ public class UserProfile {
 	private String email;
 	private Date accountCreatedDate;
 	private String accountType;
+	private String password;
 	
 	public int getUserId() {
 		return userId;
@@ -61,6 +62,12 @@ public class UserProfile {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }
