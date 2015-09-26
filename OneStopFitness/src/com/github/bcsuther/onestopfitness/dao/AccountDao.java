@@ -4,4 +4,5 @@ import com.github.bcsuther.onestopfitness.model.UserProfile;
 
 public interface AccountDao {
 	public void createUserAccount(UserProfile userProfile);
+	public UserProfile findUser(UserProfile userProfile);
 }

@@ -10,9 +10,10 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 		UserProfile userProfile = new UserProfile();
-		userProfile.setUsername("bcsuther");
-		userProfile.setFirstName("Brian");
-		userProfile.setLastName("Suther");
+		userProfile.setUsername("bcsuther112");
+		userProfile.setFirstName("Brian112");
+		userProfile.setLastName("Suther112");
+		userProfile.setPassword("test");
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.bcsuther.onestopfitness.dao.AccountDao;
+import com.github.bcsuther.onestopfitness.dao.jdbc.AccountDaoJdbc;
 import com.github.bcsuther.onestopfitness.model.AccountType;
 import com.github.bcsuther.onestopfitness.model.UserProfile;
 
@@ -21,7 +21,7 @@ public class AccountController {
 
 	@Autowired
 	@Qualifier("accountDao")
-	AccountDao accountDao;
+	AccountDaoJdbc accountDao;
 	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateAccountForm(HttpServletRequest request, HttpServletResponse response, Model model) {

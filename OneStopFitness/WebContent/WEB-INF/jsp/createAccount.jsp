@@ -23,6 +23,7 @@
         <div class="col-md-12">
             <div class="well well-sm">
                 <form:form class="form-horizontal" modelAttribute="userProfile" action="${pageContext.request.contextPath}/app/account/save" method="POST">
+                    <form:hidden path="accountType"/>
                     <fieldset>
                         <legend class="text-center header">Account Registration</legend>
                         <div class="form-group">
