@@ -22,28 +22,12 @@
 	<context:mbean-export />
 	<context:property-placeholder location="classpath*:*.properties" />
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<!-- <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	<bean id="accountDao" class="com.github.bcsuther.onestopfitness.dao.jdbc.AccountDaoJdbc" />
-	<bean id="authProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-		<property name="userDetailsService" ref="accountDao" />
-		<property name="passwordEncoder" ref="encoder" />
-	</bean> -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
-		name="url" value="jdbc:mysql://mysql.cs.iastate.edu:3306/db309R14?zeroDateTimeBehavior=convertToNull" 
-		/> <property name="username" value="u309R14" /> <property name="password" 
-		value="3Y22mNHby" /> </bean> <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
-		<property name="dataSource" ref="dataSource" /> </bean> <bean id="namedParameterTemplate" 
-		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"> 
-		<constructor-arg name="dataSource" ref="dataSource" /> </bean> <bean id="transactionManager" 
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
-		<property name="dataSource" ref="dataSource" /> </bean> -->
+	
+	<bean id="securityContextPersistenceFilter" class="org.springframework.security.web.context.SecurityContextPersistenceFilter"/>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

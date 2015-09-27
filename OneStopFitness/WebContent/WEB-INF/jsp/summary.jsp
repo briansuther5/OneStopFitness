@@ -5,6 +5,6 @@
 
 <jsp:include page="header.jsp" />
 <div class="container-fluid">
-	test
+
 </div>
 <jsp:include page="footer.jsp" />

@@ -1,14 +1,16 @@
 package com.github.bcsuther.onestopfitness.dao.jdbc;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.github.bcsuther.onestopfitness.dao.AccountDao;
 import com.github.bcsuther.onestopfitness.hibernate.session.HibernateSessionService;
 import com.github.bcsuther.onestopfitness.model.UserProfile;
+import com.github.bcsuther.onestopfitness.security.PasswordEncryptorService;
 
 @Component
 @Qualifier("accountDao")
@@ -19,12 +21,12 @@ public class AccountDaoJdbc implements AccountDao {
 	HibernateSessionService hibernateSessionService;
 	
 	@Autowired
-	@Qualifier("passwordEncoder")
-	PasswordEncoder passwordEncoder;
+	@Qualifier("passwordEncryptorService")
+	PasswordEncryptorService passwordEncryptorService;
 	
 	@Override
 	public void createUserAccount(UserProfile userProfile) {
-		userProfile.setPassword(this.passwordEncoder.encode(userProfile.getPassword()));
+		userProfile.setPassword(this.passwordEncryptorService.encryptPassword(userProfile.getPassword()));
 		Session hibernateSession = this.hibernateSessionService.getHibernateSession();
 		hibernateSession.beginTransaction();
 		hibernateSession.save(userProfile);
@@ -32,13 +34,17 @@ public class AccountDaoJdbc implements AccountDao {
 	}
 
 	@Override
-	public UserProfile findUser(UserProfile userProfile) {
-//		Session hibernateSession = this.hibernateSessionService.getHibernateSession();
-//		UserProfile dbUserProfile = (UserProfile) hibernateSession.get(UserProfile.class, userProfile.getUsername());
-//		if(userProfile.getUsername().equalsIgnoreCase(dbUserProfile.getUsername()) && this.passwordEncoder.encode(userProfile.getPassword()).equalsIgnoreCase(dbUserProfile.getPassword())) {
-//			return dbUserProfile;
-//		}
-		return null;
+	public UserProfile findUserByUsername(String username) {
+		Session hibernateSession = this.hibernateSessionService.getHibernateSession();
+		UserProfile dbUserProfile = (UserProfile) hibernateSession.createCriteria(UserProfile.class).add(Restrictions.eqOrIsNull("username", username)).uniqueResult();
+		return dbUserProfile;
+	}
+
+	@Override
+	public UserProfile findUserByUserDetails(UserDetails userDetails) {
+		Session hibernateSession = this.hibernateSessionService.getHibernateSession();
+		UserProfile dbUserProfile = (UserProfile) hibernateSession.createCriteria(UserProfile.class).add(Restrictions.eqOrIsNull("username", userDetails.getUsername())).uniqueResult();
+		return dbUserProfile;
 	}
 
 }
