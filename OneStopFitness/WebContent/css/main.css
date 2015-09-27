@@ -273,4 +273,20 @@ h4 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+.notice-danger {
+    border-color: #a94442;
+}
+.notice-danger>strong {
+    color: #a94442;
+}
     

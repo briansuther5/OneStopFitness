@@ -36,6 +36,11 @@
 			<div class="loginmodal-container">
 				<h1>Login to Your Account</h1><br>
 			  	<form:form class="form-horizontal" modelAttribute="userProfile" action="${pageContext.request.contextPath}/app/account/login" method="POST">
+					<c:if test="${invalidCredentials}">
+						<div id="new-user-error-notice" class="notice notice-danger">
+							<strong>Incorrect username or password.</strong>
+						</div>
+					</c:if>
 					<form:input type="text" path="username" placeholder="Username" />
 					<form:input type="password" path="password" placeholder="Password" />
 					<input type="submit" class="login loginmodal-submit" value="Login" />
@@ -48,7 +53,7 @@
 	</div>
 	
 	<script>
-		<c:if test="${accountCreated}">
+		<c:if test="${accountCreated or invalidCredentials}">
 			$("#login-modal").modal("show");
 		</c:if>
 		var eOsfContextHolder = {
