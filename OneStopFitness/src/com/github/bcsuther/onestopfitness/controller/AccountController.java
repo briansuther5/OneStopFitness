@@ -62,4 +62,10 @@ public class AccountController {
 		}
 		return "redirect:/app/summary/view?invalidCredentials=true";
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr, Model model) {
+		SecurityContextHolder.clearContext();
+		return "redirect:/app/summary/view";
+	}
 }

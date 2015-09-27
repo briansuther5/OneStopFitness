@@ -6,7 +6,7 @@
 <jsp:include page="header.jsp" />
 <div class="callout-light text-center fade-in-b">
 	<h1>
-		Learn more about Jim Wendler 5/3/1<br>
+		Learn more about Jim Wendler 5/3/1 <br>
 		<a href="http://www.jimwendler.com/" target="_blank" class="btn btn-success"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;More Info</a>
 	</h1>
 </div>
@@ -36,7 +36,7 @@
 	<div class="input-group">
 		<input id="jwOneRepMax" class="form-control" placeholder="One Rep Max" />
 		<span class="input-group-btn">
-        	<button id="jwOneRepMaxButton" class="btn btn-success" type="button"><span class="glyphicon glyphicon-refresh"></span></button>
+        	<button id="jwOneRepMaxButton" class="btn btn-success" type="button">Calculate</button>
       	</span>
 	</div>
 	<div id="jwTable"></div>
