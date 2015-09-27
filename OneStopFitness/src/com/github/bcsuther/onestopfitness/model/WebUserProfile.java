@@ -20,6 +20,14 @@ public class WebUserProfile extends User {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.userProfile = userProfile;
 	}
+	
+	public WebUserProfile(String username //
+			, String password //
+			, Collection<? extends GrantedAuthority> authorities //
+			, UserProfile userProfile) {
+		super(username, password, true, true, true, true, authorities);
+		this.userProfile = userProfile;
+	}
 
 	private static final long serialVersionUID = -395680980538446679L;
 

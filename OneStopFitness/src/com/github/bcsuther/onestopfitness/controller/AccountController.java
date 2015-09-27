@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -54,7 +55,12 @@ public class AccountController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("userProfile") UserProfile userProfile, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr, Model model) {
-		UserDetails userDetails = customUserDetailsService.loadUserByUsername(userProfile.getUsername());
+		UserDetails userDetails;
+		try {
+			userDetails = customUserDetailsService.loadUserByUsername(userProfile.getUsername());
+		} catch(UsernameNotFoundException e) {
+			return "redirect:/app/summary/view?invalidCredentials=true";
+		}
 		if(verifyAccountCredentialsService.performVerification(userDetails, userProfile)) {
 			Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
 			SecurityContextHolder.getContext().setAuthentication(authentication);

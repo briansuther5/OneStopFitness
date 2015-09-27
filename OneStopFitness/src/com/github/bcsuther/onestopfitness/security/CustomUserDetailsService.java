@@ -24,11 +24,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		UserProfile userProfile = accountDao.findUserByUsername(username);
+		if(userProfile == null) {
+			throw new UsernameNotFoundException(username);
+		}
 		try {
-			UserProfile userProfile = accountDao.findUserByUsername(username);
-			if(userProfile == null) {
-				return new WebUserProfile("", "", true, true, true, true, new ArrayList<GrantedAuthority>(), new UserProfile());
-			}
 			return new WebUserProfile(userProfile.getUsername(), userProfile.getPassword(), true, true, true, true, new ArrayList<GrantedAuthority>(), userProfile);
 		} catch (Exception e) {
 			throw new RuntimeException(e);

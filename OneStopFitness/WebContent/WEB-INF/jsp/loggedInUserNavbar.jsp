@@ -14,7 +14,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="${pageContext.request.contextPath}/app/summary/view"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
-					<li><a href="#about"><i class="fa fa-book"></i>&nbsp;Diary</a></li>
+					<li><a href="#about"><i class="fa fa-book"></i>&nbsp;Workout Log</a></li>
 					<li><a href="#contact"><i class="fa fa-list"></i>&nbsp;Exercises</a></li>
 					<li><a href="${pageContext.request.contextPath}/app/calendar/view"><i class="fa fa-calendar"></i></a></li>
 					<li class="dropdown">
@@ -32,8 +32,8 @@
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false">${userProfile.firstName}&nbsp;${userProfile.lastName}<span class="caret"></span></a>
           				<ul class="dropdown-menu" role="menu">
-				            <li><a href="#">My Profile</a></li>
-				            <li><a href="${pageContext.request.contextPath}/app/account/logout">Logout</a></li>
+				            <li><a href="#"><i class="fa fa-user"></i>&nbsp;My Profile</a></li>
+				            <li><a href="${pageContext.request.contextPath}/app/account/logout"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
           				</ul>
         			</li>
 				</ul>

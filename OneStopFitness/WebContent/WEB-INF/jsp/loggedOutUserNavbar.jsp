@@ -14,7 +14,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="${pageContext.request.contextPath}/app/summary/view"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
-					<li><a href="#about"><i class="fa fa-book"></i>&nbsp;Diary</a></li>
+					<li><a href="#about"><i class="fa fa-book"></i>&nbsp;Workout Log</a></li>
 					<li><a href="#contact"><i class="fa fa-list"></i>&nbsp;Exercises</a></li>
 					<li><a href="${pageContext.request.contextPath}/app/calendar/view"><i class="fa fa-calendar"></i></a></li>
 					<li class="dropdown">
