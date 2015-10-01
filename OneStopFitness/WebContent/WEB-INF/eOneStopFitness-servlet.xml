@@ -47,7 +47,7 @@
 			</props>
 		</property>
 	</bean>
-
+	
 	<!-- <bean id="userDao" class="edu.iastate.cs309.dao.UserDaoImpl" /> <bean 
 		id="itemDao" class="edu.iastate.cs309.dao.ItemDaoImpl" /> <bean id="transactionDao" 
 		class="edu.iastate.cs309.dao.TransactionDaoImpl" /> <bean id="feedbackDao" 

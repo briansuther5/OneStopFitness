@@ -22,6 +22,7 @@ import com.github.bcsuther.onestopfitness.dao.jdbc.AccountDaoJdbc;
 import com.github.bcsuther.onestopfitness.model.AccountType;
 import com.github.bcsuther.onestopfitness.model.UserProfile;
 import com.github.bcsuther.onestopfitness.security.CustomUserDetailsService;
+import com.github.bcsuther.onestopfitness.service.UserService;
 
 @Controller
 @RequestMapping(value="/account")
@@ -38,6 +39,10 @@ public class AccountController {
 	@Autowired
 	@Qualifier("verifyAccountCredentialsService")
 	VerifyAccountCredentialsService verifyAccountCredentialsService;
+	
+	@Autowired
+	@Qualifier("userService")
+	UserService userService;
 	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateAccountForm(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -73,5 +78,11 @@ public class AccountController {
 	public String logout(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr, Model model) {
 		SecurityContextHolder.clearContext();
 		return "redirect:/app/summary/view";
+	}
+	
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public String viewProfile(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr, Model model) {
+		model.addAttribute("userProfile", userService.getLoggedInUser());
+		return "profile";
 	}
 }

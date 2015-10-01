@@ -21,7 +21,9 @@ footer {
   height: 100px; 
 }
 .site-footer {
-  background: #00001c!important;
+  background-color: #00003d;
+  border-top: 1px solid #00001c;
+  padding-top: 5px;
 }
 
 

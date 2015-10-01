@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public SecurityContextPersistenceFilter securityContextPersistenceFilter() {
     	return new SecurityContextPersistenceFilter();
     }
-     
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()

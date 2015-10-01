@@ -14,23 +14,22 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="${pageContext.request.contextPath}/app/summary/view"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
-					<li><a href="#about"><i class="fa fa-book"></i>&nbsp;Workout Log</a></li>
-					<li><a href="#contact"><i class="fa fa-list"></i>&nbsp;Exercises</a></li>
-					<li><a href="${pageContext.request.contextPath}/app/calendar/view"><i class="fa fa-calendar"></i></a></li>
+					<li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-book"></i>&nbsp;Workout Log</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-th"></span>&nbsp;My Exercises</a></li>
 					<li class="dropdown">
-          			<a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cogs"></i><span class="caret"></span></a>
+          			<a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cogs"></i>&nbsp;Tools<span class="caret"></span></a>
           				<ul class="dropdown-menu" role="menu">
-				            <li><a href="#">Calorie Maintenance</a></li>
-				            <li><a href="#">BMI Calculator</a></li>
-				            <li><a href="#">Body Fat</a></li>
-				            <li><a href="${pageContext.request.contextPath}/app/calculator/jimwendler">Jim Wendler 5/3/1</a></li>
+				            <li><a href="#" data-toggle="modal" data-target="#login-modal">Calorie Maintenance</a></li>
+				            <li><a href="#" data-toggle="modal" data-target="#login-modal">BMI Calculator</a></li>
+				            <li><a href="#" data-toggle="modal" data-target="#login-modal">Body Fat</a></li>
+				            <li><a href="#" data-toggle="modal" data-target="#login-modal">Jim Wendler 5/3/1</a></li>
           				</ul>
         			</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
 					<li><a href="${pageContext.request.contextPath}/app/summary/contact">Contact</a></li>
 					<li><a href="${pageContext.request.contextPath}/app/account/create">Create Account</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i>&nbsp;Sign In</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
