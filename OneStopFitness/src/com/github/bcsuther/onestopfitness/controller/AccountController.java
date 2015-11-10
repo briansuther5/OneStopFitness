@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import com.github.bcsuther.onestopfitness.model.AccountType;
 import com.github.bcsuther.onestopfitness.model.UserProfile;
 import com.github.bcsuther.onestopfitness.security.CustomUserDetailsService;
 import com.github.bcsuther.onestopfitness.service.UserService;
+import com.github.bcsuther.onestopfitness.validator.AccountValidator;
 
 @Controller
 @RequestMapping(value="/account")
@@ -44,6 +46,10 @@ public class AccountController {
 	@Qualifier("userService")
 	UserService userService;
 	
+	@Autowired
+	@Qualifier("accountValidator")
+	AccountValidator accountValidator;
+	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateAccountForm(HttpServletRequest request, HttpServletResponse response, Model model) {
 		UserProfile userProfile = new UserProfile();
@@ -53,7 +59,16 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String createUserAccount(@ModelAttribute("userProfile") final UserProfile userProfile, HttpServletRequest request, HttpServletResponse response) {
+	public String createUserAccount(@ModelAttribute UserProfile userProfile //
+			, BindingResult result //
+			, HttpServletRequest request //
+			, HttpServletResponse response //
+			, Model model) {
+		this.accountValidator.validate(userProfile, result);
+		if(result.hasErrors()) {
+			model.addAttribute("userProfile", userProfile);
+			return "createAccount";
+		}
 		this.accountDao.createUserAccount(userProfile);
 		return "redirect:/app/summary/view?accountCreated=true";
 	}
