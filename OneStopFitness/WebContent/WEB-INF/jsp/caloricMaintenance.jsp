@@ -25,23 +25,23 @@
 		  			<label class="control-label col-lg-1 col-md-1">Height</label>
 		  			<div class="col-lg-11 col-md-11">
 						<div class="btn-group" role="group">
-						  <button type="button" class="btn btn-default feet-btn">4</button>
-						  <button type="button" class="btn btn-default feet-btn">5</button>
-						  <button type="button" class="btn btn-default feet-btn">6</button>
+						  <button id="4" type="button" class="btn btn-default feet-btn">4</button>
+						  <button id="5" type="button" class="btn btn-default feet-btn">5</button>
+						  <button id="6" type="button" class="btn btn-default feet-btn">6</button>
 						</div>&nbsp;Feet&nbsp;
 						<div class="btn-group" role="group">
-						  <button type="button" class="btn btn-default inches-btn">1</button>
-						  <button type="button" class="btn btn-default inches-btn">2</button>
-						  <button type="button" class="btn btn-default inches-btn">3</button>
-						  <button type="button" class="btn btn-default inches-btn">4</button>
-						  <button type="button" class="btn btn-default inches-btn">5</button>
-						  <button type="button" class="btn btn-default inches-btn">6</button>
-						  <button type="button" class="btn btn-default inches-btn">7</button>
-						  <button type="button" class="btn btn-default inches-btn">8</button>
-						  <button type="button" class="btn btn-default inches-btn">9</button>
-						  <button type="button" class="btn btn-default inches-btn">10</button>
-						  <button type="button" class="btn btn-default inches-btn">11</button>
-						  <button type="button" class="btn btn-default inches-btn">12</button>
+						  <button id="1" type="button" class="btn btn-default inches-btn">1</button>
+						  <button id="2" type="button" class="btn btn-default inches-btn">2</button>
+						  <button id="3" type="button" class="btn btn-default inches-btn">3</button>
+						  <button id="4" type="button" class="btn btn-default inches-btn">4</button>
+						  <button id="5" type="button" class="btn btn-default inches-btn">5</button>
+						  <button id="6" type="button" class="btn btn-default inches-btn">6</button>
+						  <button id="7" type="button" class="btn btn-default inches-btn">7</button>
+						  <button id="8" type="button" class="btn btn-default inches-btn">8</button>
+						  <button id="9" type="button" class="btn btn-default inches-btn">9</button>
+						  <button id="10" type="button" class="btn btn-default inches-btn">10</button>
+						  <button id="11" type="button" class="btn btn-default inches-btn">11</button>
+						  <button id="12" type="button" class="btn btn-default inches-btn">12</button>
 						</div>&nbsp;Inches
 			  		</div>
 		  		</div>
@@ -59,12 +59,27 @@
 			  		<div class="form-group">
 			  			<label class="control-label col-lg-2 col-md-2">Weight</label>
 			  			<div class="col-lg-10 col-md-10">
-							<input id="Weight" class="form-control" placeholder="Weight in lbs" />
+							<input id="weight" class="form-control" placeholder="Weight in lbs" />
 				  		</div>
 			  		</div>
 		  		</div>
 			</div>
-			<button class="btn btn-block btn-success">Estimate daily calorie maintenance level</button>
+	  		<div class="row">
+		  		<div class="form-group">
+		  			<label class="control-label col-lg-1 col-md-1">Active</label>
+		  			<div class="col-lg-6 col-md-6">
+				  		<select id="activityLevel" class="form-control">
+				  			<option value="">Select...</option>
+				  			<option value="1.2">Little or no exercise</option>
+				  			<option value="1.375">Light Activity</option>
+				  			<option value="1.550">Moderate Activity</option>
+				  			<option value="1.725">Very Active</option>
+				  			<option value="1.9">Extremely Active</option>
+				  		</select>
+			  		</div>
+		  		</div>
+	  		</div>
+			<button id="calculateBtn" class="btn btn-block btn-success"><span class="glyphicon glyphicon-stats"></span>&nbsp;Estimate daily calorie maintenance level</button>
 	  	</div>
 	</div>
 </div>
