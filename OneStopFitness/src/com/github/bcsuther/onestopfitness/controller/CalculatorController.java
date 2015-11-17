@@ -21,8 +21,14 @@ public class CalculatorController {
 	UserService userService;
 	
 	@RequestMapping(value = "/jimwendler", method = RequestMethod.GET)
-	public String view(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String showJimWendler(HttpServletRequest request, HttpServletResponse response, Model model) {
 		model.addAttribute("userProfile", userService.getLoggedInUser());
 		return "jimWendler";
+	}
+	
+	@RequestMapping(value = "/caloricmaintenance", method = RequestMethod.GET)
+	public String showCaloricMaintenance(HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("userProfile", userService.getLoggedInUser());
+		return "caloricMaintenance";
 	}
 }

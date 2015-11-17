@@ -19,7 +19,7 @@
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cogs"></i>&nbsp;Tools<span class="caret"></span></a>
           				<ul class="dropdown-menu" role="menu">
-				            <li><a href="#">Calorie Maintenance</a></li>
+				            <li><a href="${pageContext.request.contextPath}/app/calculator/caloricmaintenance">Calorie Maintenance</a></li>
 				            <li><a href="#">BMI Calculator</a></li>
 				            <li><a href="#">Body Fat</a></li>
 				            <li><a href="${pageContext.request.contextPath}/app/calculator/jimwendler">Jim Wendler 5/3/1</a></li>
