@@ -1,6 +1,7 @@
 var caloricMaintenanceLevel = {
 	calculatorFeetBtnSelector : ".feet-btn"
 	,calculatorInchesBtnSelector : ".inches-btn"
+	,calorieMaintenanceLevelDisplaySelector : "#calorie-maintenance-level-display"
 	,init : function() {
 		$(caloricMaintenanceLevel.calculatorFeetBtnSelector).bind("click", function() {
 			var selector = caloricMaintenanceLevel.calculatorFeetBtnSelector;
@@ -23,7 +24,9 @@ var caloricMaintenanceLevel = {
 		var activityLevel = parseFloat($("#activityLevel").val());
 		if(gender == "M") {
 			var calories = caloricMaintenanceLevel.mifflinStJeorFormulaMan(weight / 2.2, ((feet * 12) + inches) * 2.54, age, activityLevel);
-			alert(calories);
+			$(caloricMaintenanceLevel.calorieMaintenanceLevelDisplaySelector).empty();
+			$(caloricMaintenanceLevel.calorieMaintenanceLevelDisplaySelector).html("Your current estimated caloric maintenance level is <span style='color:#029a02;font-weight:bold;font-size:25px;'>" + Math.round(calories) + "</span> calories.");
+			$(caloricMaintenanceLevel.calorieMaintenanceLevelDisplaySelector).show();
 		} else {
 			var calories = caloricMaintenanceLevel.mifflinStJeorFormulaWoman(weight / 2.2, ((feet * 12) + inches) * 2.54, age, activityLevel);
 			alert(calories);

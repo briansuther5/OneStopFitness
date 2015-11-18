@@ -79,6 +79,7 @@
 			  		</div>
 		  		</div>
 	  		</div>
+	  		<div id="calorie-maintenance-level-display" style="display:none;text-align:center;padding-bottom: 7px;"></div>
 			<button id="calculateBtn" class="btn btn-block btn-success"><span class="glyphicon glyphicon-stats"></span>&nbsp;Estimate daily calorie maintenance level</button>
 	  	</div>
 	</div>
