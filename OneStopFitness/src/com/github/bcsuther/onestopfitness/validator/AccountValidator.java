@@ -32,7 +32,7 @@ public class AccountValidator implements Validator {
 		
 		UserProfile userProfile = (UserProfile) target;
 		UserProfile existingUser = accountDao.findUserByUsername(userProfile.getUsername());
-		if(existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()) {
+		if(existingUser != null && existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()) {
 			errors.rejectValue("username", "error.username", "Username already exist. Please choose a different one.");
 		}
 		
