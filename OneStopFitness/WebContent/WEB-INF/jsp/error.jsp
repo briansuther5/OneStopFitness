@@ -8,6 +8,7 @@
 <body>
 	<h1>There was an error.</h1>
 	<p>${errorMessage}</p>
+	<p>${localErrorMessage}</p>
 	<p>${stacktrace}</p>
 </body>
 </html>

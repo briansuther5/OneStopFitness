@@ -72,27 +72,35 @@ public class AccountController {
 			}
 			this.accountDao.createUserAccount(userProfile);
 			return "redirect:/app/summary/view?accountCreated=true";
-		} catch (Exception e) {
-			model.addAttribute("errorMessage", e.getMessage());
-			model.addAttribute("stacktrace", e.getStackTrace().toString());
+		} catch (Throwable t) {
+			model.addAttribute("errorMessage", t.getMessage());
+			model.addAttribute("localErrorMessage", t.getLocalizedMessage());
+			model.addAttribute("stacktrace", t.getStackTrace().toString());
 			return "error";
 		}
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("userProfile") UserProfile userProfile, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttr, Model model) {
-		UserDetails userDetails;
 		try {
-			userDetails = customUserDetailsService.loadUserByUsername(userProfile.getUsername());
-		} catch(UsernameNotFoundException e) {
+			UserDetails userDetails;
+			try {
+				userDetails = customUserDetailsService.loadUserByUsername(userProfile.getUsername());
+			} catch(UsernameNotFoundException e) {
+				return "redirect:/app/summary/view?invalidCredentials=true";
+			}
+			if(verifyAccountCredentialsService.performVerification(userDetails, userProfile)) {
+				Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+				SecurityContextHolder.getContext().setAuthentication(authentication);
+				return "redirect:/app/summary/view";
+			}
 			return "redirect:/app/summary/view?invalidCredentials=true";
+		} catch (Throwable t) {
+			model.addAttribute("errorMessage", t.getMessage());
+			model.addAttribute("localErrorMessage", t.getLocalizedMessage());
+			model.addAttribute("stacktrace", t.getStackTrace().toString());
+			return "error";
 		}
-		if(verifyAccountCredentialsService.performVerification(userDetails, userProfile)) {
-			Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			return "redirect:/app/summary/view";
-		}
-		return "redirect:/app/summary/view?invalidCredentials=true";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
