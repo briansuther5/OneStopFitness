@@ -60,17 +60,22 @@ public class AccountController {
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String createUserAccount(@ModelAttribute UserProfile userProfile //
-			, BindingResult result //
-			, HttpServletRequest request //
-			, HttpServletResponse response //
-			, Model model) {
-		this.accountValidator.validate(userProfile, result);
-		if(result.hasErrors()) {
-			model.addAttribute("userProfile", userProfile);
-			return "createAccount";
+	, BindingResult result //
+	, HttpServletRequest request //
+	, HttpServletResponse response //
+	, Model model) {
+		try {
+			this.accountValidator.validate(userProfile, result);
+			if (result.hasErrors()) {
+				model.addAttribute("userProfile", userProfile);
+				return "createAccount";
+			}
+			this.accountDao.createUserAccount(userProfile);
+			return "redirect:/app/summary/view?accountCreated=true";
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "error";
 		}
-		this.accountDao.createUserAccount(userProfile);
-		return "redirect:/app/summary/view?accountCreated=true";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
