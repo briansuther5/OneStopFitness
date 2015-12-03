@@ -7,6 +7,7 @@
 </head>
 <body>
 	<h1>There was an error.</h1>
-	<p>${error}</p>
+	<p>${errorMessage}</p>
+	<p>${stacktrace}</p>
 </body>
 </html>

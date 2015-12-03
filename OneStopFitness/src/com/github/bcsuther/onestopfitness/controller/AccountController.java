@@ -73,7 +73,8 @@ public class AccountController {
 			this.accountDao.createUserAccount(userProfile);
 			return "redirect:/app/summary/view?accountCreated=true";
 		} catch (Exception e) {
-			model.addAttribute("error", e.getMessage());
+			model.addAttribute("errorMessage", e.getMessage());
+			model.addAttribute("stacktrace", e.getStackTrace());
 			return "error";
 		}
 	}
