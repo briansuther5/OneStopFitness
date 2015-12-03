@@ -74,7 +74,7 @@ public class AccountController {
 			return "redirect:/app/summary/view?accountCreated=true";
 		} catch (Exception e) {
 			model.addAttribute("errorMessage", e.getMessage());
-			model.addAttribute("stacktrace", e.getStackTrace());
+			model.addAttribute("stacktrace", e.getStackTrace().toString());
 			return "error";
 		}
 	}
